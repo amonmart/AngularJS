@@ -3,13 +3,17 @@
   <table class="table">
     <thead>
       <tr>
-        <th>NOM</th>
-        <th></th>
+        <th ng-click="predicate ='name'; reverse = !reverse">NOM</th>
+        <th ng-click="predicate ='_toppingsLenght'; reverse = !reverse ">TOPPINGS</th>
+        <th ng-click="predicate ='prix'; reverse = !reverse ">PRIX</th>
+        <th ng-click="predicate ='status'; reverse = !reverse ">Status</th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="pizza in $ctrl.pizzas track by $index">
+      <tr ng-repeat="pizza in $ctrl.pizzas | orderBy:predicate:reverse track by $index">
         <td>{{ pizza.name }}</td>
+        <td>{{ pizza | pizzaToppings }}</td>
+        <td>{{ pizza.prix | currency:'€':2}}</td>
         <td>
           <button ng-click="$ctrl.cookPizza(pizza)" ng-if="!pizza.status" class="btn">cook me</button>
           <span ng-if="pizza.status">CUITE</span>
