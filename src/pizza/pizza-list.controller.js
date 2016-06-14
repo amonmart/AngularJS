@@ -17,10 +17,8 @@ export class PizzaListController {
     })
   }
 
-  addPizza () {
-    this.pizzas.push({
-      name: 'new pizza'
-    })
+  addPizza (pizza) {
+    this.pizzas.push(pizza)
   }
 
   cookPizza (pizza) {
