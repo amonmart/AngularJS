@@ -1,36 +1,24 @@
-import { Pizza } from './pizza'
-import { TOPPINGS_LIST } from './toppings-list'
-
 export class PizzaController {
-  constructor () {
-    this.name = 'Pizza'
-    this.toppings = TOPPINGS_LIST
+  constructor ($routeParams, $PizzaService, $location) {
+    this.PizzaService = $PizzaService
+    this.$location = $location
+
+    $PizzaService.getPizza($routeParams.id)
+      .then(pizza => { this.pizza = pizza })
+
+    this.PizzaService.getToppings()
+      .then(toppings => {
+        this.toppings = toppings
+      })
   }
 
   savePizza (form) {
-    var keys = Object.keys(this.toppings)
-    console.log(keys)
-
-    this.pizza.toppings = this.pizza.toppings
-      .reduce((acc, v, i) => {
-        if (v) acc.push(keys[i])
-        return acc
-      }, [])
-
-    console.log('save', this.pizza.toppings)
+    if (form.$invalid) return
+    this.PizzaService.savePizza(this.pizza)
+      .then(() => {
+        this.$location.path('/')
+      })
   }
 }
 
-/*
-angular.module('submitExample', [])
-    .controller('ExampleController', ['$scope', function($scope) {
-      $scope.list = [];
-      $scope.text = 'hello';
-      $scope.submit = function() {
-        if ($scope.text) {
-          $scope.list.push(this.text);
-          $scope.text = '';
-        }
-      };
-    }]);
-*/
+PizzaController.$inject = ['$routeParams', 'PizzaService', '$location']

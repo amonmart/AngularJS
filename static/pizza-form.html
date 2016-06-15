@@ -1,13 +1,14 @@
-<div ng-controller="PizzaController as $ctrl">
-  <ng-form class="form-horizontal" role="form">
+<div>
+  <form ng-submit="$ctrl.savePizza(form)" name= "form" class="form-horizontal" role="form">
     <div class="form-group">
       <label class="sr-only" for="pizzaName">Name</label>
       <input ng-model="$ctrl.pizza.name" type="text" class="form-control" id="pizzaName">
     </div>
     <div ng-repeat="(topping, toppingName) in $ctrl.toppings track by $index" class="checkbox">
-      <label><input ng-model="$ctrl.pizza.toppings[$index]" type="checkbox">{{topping}}</label>
+      <label><input ng-model="$ctrl.pizza.toppings[$index]" type="checkbox">{{ topping }}</label>
     </div>
-    <button type="submit" class="btn btn-success" ng-submit="$ctrl.savePizza()">Save</button>
+    <button type="submit" class="btn btn-success">Save</button>
     <pre>{{ $ctrl.pizza | json }}</pre>
-  </ng-form>
+    <pre>{{ $ctrl.toppings | json }}</pre>
+  </form>
 </div>

@@ -1,7 +1,7 @@
 export class Pizza {
-  constructor ({name, prix, status, toppings = []}) {
+  constructor ({id = -1, name, status, toppings = []}) {
+    this.id = id
     this.name = name
-    this.prix = prix
     this.toppings = toppings
     this.status = status
   }
@@ -18,5 +18,14 @@ export class Pizza {
         return `${topping}`
       })
       .join(', ')
+  }
+
+  json () {
+    return {
+      id: this.id,
+      name: this.name,
+      status: this.status,
+      toppings: this.toppings
+    }
   }
 }

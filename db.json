@@ -1,0 +1,43 @@
+{
+  "pizzas": [
+    {
+      "id": 15,
+      "name": "LaPizzaMichel",
+      "toppings": [
+        true,
+        true,
+        true
+      ],
+      "status": 0
+    },
+    {
+      "id": 16,
+      "name": "Jean-Michel-Pizza",
+      "toppings": [
+        "Albert",
+        true,
+        true
+      ],
+      "status": 0
+    }
+  ],
+  "toppings": [
+    {
+      "apple": {
+        "fr": "Pomme"
+      },
+      "ham": {
+        "fr": "Jambon"
+      },
+      "orange": {
+        "fr": "Orange"
+      },
+      "jean-Michel": {
+        "fr": "Jean-Michel"
+      },
+      "cherry": {
+        "fr": "Cerise"
+      }
+    }
+  ]
+}
