@@ -1,9 +1,10 @@
 import { Pizza } from './pizza'
 
 export class PizzaService {
-  constructor ($timeout, $http, $location) {
+  constructor ($timeout, $http, $location, $q) {
     this.$timeout = $timeout
     this.$http = $http
+    this.$q = $q
   }
 
   getPizzas () {
@@ -19,18 +20,6 @@ export class PizzaService {
       .then(response => {
         return new Pizza(response.data)
       })
-  }
-
-  getToppings () {
-    if (this.toppings) {
-      return this.$q.resolve(this.toppings)
-    } else {
-      return this.$http.get('http://localhost:1337/toppings')
-        .then(response => {
-          this.toppings = response.data
-          return this.toppings
-        })
-    }
   }
 
   savePizza (pizza) {
@@ -52,4 +41,4 @@ export class PizzaService {
   }
 }
 
-PizzaService.$inject = ['$timeout', '$http', '$location']
+PizzaService.$inject = ['$timeout', '$http', '$location', '$q']
