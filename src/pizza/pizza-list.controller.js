@@ -1,25 +1,43 @@
 import { Pizza } from './pizza'
 
 export class PizzaListController {
-  constructor ($timeout) {
+  constructor ($timeout, PizzaService, $http) {
     this.$timeout = $timeout
+    this.PizzaService = PizzaService
+    this.$http = $http
+    this.$location
+    this.pizza = null
+    console.log(PizzaService.getPizzas())
 
-    this.pizzas = [
-      new Pizza({ name: 'Pizza 1', prix: 12, status: 0, toppings: ['eggs', 'eggs', 'apple', 'mushrooms'] }),
-      new Pizza({ name: 'Pizza 2', prix: 14, status: 0, toppings: ['eggs', 'apple', 'ham', 'mushrooms', 'orange'] }),
-      new Pizza({ name: 'Pizza 3', prix: 13, status: 0 }),
-      new Pizza({ name: 'Pizza 4', prix: 18, status: 0, toppings: ['apple', 'mushrooms'] }),
-      new Pizza({ name: 'Pizza 5', prix: 120, status: 0, toppings: ['eggs', 'apple', 'ham', 'mushrooms'] })
-    ].map(pizza => {
-      pizza._toppings = pizza.toppings2String()
-      pizza._toppingsLenght = pizza.toppings.length
-      return pizza
-    })
+    this.PizzaService.getPizzas()
+      .then(pizzas => {
+        this.pizzas = this.initPizzas(pizzas)
+      })
+  }
+
+  initPizzas (pizzas) {
+    return pizzas
+      .map(pizza => {
+        pizza._toppings = pizza.toppings2String()
+        pizza._toppingsLength = (pizza.toppings || []).length
+        return pizza
+      })
   }
 
   addPizza () {
-    this.pizzas.push({
-      name: 'new pizza'
+    var pizza = new Pizza({name: 'Nouvelle Pizza !', status: 0, toppings: ['Albert', 'Jean-Michel']})
+    this.PizzaService.addPizza(pizza)
+    .then(pizzas => {
+      this.pizzas = pizzas
+      this.initPizzas(pizzas)
+    })
+  }
+
+  deletePizza (pizza) {
+    this.PizzaService.deletePizza(pizza)
+    .then(pizzas => {
+      this.pizzas = pizzas
+      this.initPizzas(pizzas)
     })
   }
 
@@ -34,3 +52,5 @@ export class PizzaListController {
     if (!pizza) return
   }
 }
+
+PizzaListController.$inject = ['$timeout', 'PizzaService', '$http']

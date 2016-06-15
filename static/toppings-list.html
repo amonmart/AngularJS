@@ -1,0 +1,23 @@
+<div>
+  <div ng-if="!$ctrl.toppings" class="container container-fluid"><img src="images/ring.gif"></div>
+  <div ng-if="$ctrl.toppings" class="container">
+      <div class="row">
+        <div class="col-xs-12">
+            <table class="table table-stripped">
+                <thead>
+                    <th>Topping</th>
+                    <th>Français</th>
+                    <th>Delete</th>
+                </thead>
+                <tbody>
+                     <tr ng-repeat="topping in $ctrl.toppings track by $index">
+                        <th>{{ topping.key }}</th>
+                        <th>{{ topping.fr }}</th>
+                        <th><button class="btn btn-danger" ng-click="$ctrl.delete(topping)">Delete</button></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      </div>
+  </div>
+</div>
