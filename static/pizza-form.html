@@ -1,13 +1,32 @@
 <div>
-  <form ng-submit="$ctrl.savePizza(form)" name= "form" class="form-horizontal" role="form">
+  <form ng-submit="$ctrl.savePizza(form)" name="form" class="form-horizontal" role="form">
     <div class="form-group">
-      <label class="sr-only" for="pizzaName">Name</label>
-      <input ng-model="$ctrl.pizza.name" type="text" class="form-control" id="pizzaName">
+      <div class="row">
+        <div class="col-xs-5">
+          <label class="sr-only" for="pizzaName">Name</label>
+          <input ng-model="$ctrl.pizza.name" type="text" class="form-control" id="pizzaName" placeholder="Pizza name">
+        </div>
+        <div class="col-xs-7">
+          <p style="text-align: center "><strong>Availables toppings</strong></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-5">
+          <div ng-dragndrop="{ dropzone: $ctrl.dropzone }" class="well"></div>
+        </div>
+        <div class="col-xs-7">
+          <ul class="list-group">
+            <li ng-dragndrop ng-repeat="availableTopping in $ctrl.availableToppings track by $index" class= "list-group-item">{{ availableTopping.key }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-5">
+          <button type="submit" class="btn btn-success">Save</button>
+        </div>
+      </div>
     </div>
-    <div ng-repeat="(topping, toppingName) in $ctrl.toppings track by $index" class="checkbox">
-      <label><input ng-model="$ctrl.pizza.toppings[$index]" type="checkbox">{{ topping }}</label>
-    </div>
-    <button type="submit" class="btn btn-success">Save</button>
+
     <pre>{{ $ctrl.pizza | json }}</pre>
     <pre>{{ $ctrl.toppings | json }}</pre>
   </form>
