@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-xs-6">
+    <h2>Current Pizza Toppings</h2>
+    <ul class="list-group">
+      <li ng-repeat="topping in $ctrl.toppingList track by $index" ng-click="$ctrl.toppingOnClick(topping)" class="list-group-item">
+        {{ topping }}
+      </li>
+    </ul>
+  </div>
+  <div class="col-xs-6">
+    <h2>Availables Toppings</h2>
+    <ul class="list-group">
+      <li ng-repeat="availableTopping in $ctrl.availableToppings track by $index" ng-click="$ctrl.availableOnClick(availableTopping)" class="list-group-item"> {{ availableTopping.key }} - {{availableTopping.fr }}</li>
+    </ul>
+  </div>
+</div>

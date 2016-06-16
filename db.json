@@ -1,13 +1,31 @@
 {
   "pizzas": [
     {
+      "id": 6,
+      "name": "JeanMichelPizza",
+      "toppings": [
+        "Cherry",
+        "Raspberry"
+      ],
+      "status": 0
+    },
+    {
+      "id": 7,
+      "name": "KevinPizza",
+      "toppings": [
+        "Orange",
+        "Orange"
+      ],
+      "status": 0
+    },
+    {
       "name": "Nouvelle Pizza !",
       "status": 0,
       "toppings": [
         "Albert",
         "Jean-Michel"
       ],
-      "id": 5
+      "id": 8
     }
   ],
   "toppings": [
@@ -17,9 +35,19 @@
       "fr": "Orange"
     },
     {
-      "id": 3,
+      "id": 2,
       "key": "Mango",
       "fr": "Mangue"
+    },
+    {
+      "id": 3,
+      "key": "Raspberry",
+      "fr": "Framboise"
+    },
+    {
+      "id": 4,
+      "key": "Cherry",
+      "fr": "Cerise"
     }
   ]
 }

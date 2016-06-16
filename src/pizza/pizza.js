@@ -6,6 +6,13 @@ export class Pizza {
     this.status = status
   }
 
+  addTopping (topping) {
+    console.log('topping : ' + topping)
+    if (this.toppings.filter(t => t === topping).length > 1) return this
+    this.toppings.push(topping)
+    return this
+  }
+
   toppings2String () {
     return this.toppings
       .reduce((accu, topping) => {

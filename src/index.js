@@ -3,6 +3,7 @@ import ngRoute from 'angular-route'
 import PizzaModule from './pizza'
 import NavbarModule from './navbar'
 
+
 angular.module('dtang', [
   PizzaModule,
   NavbarModule,

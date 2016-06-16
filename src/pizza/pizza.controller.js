@@ -12,6 +12,10 @@ export class PizzaController {
       .then(pizza => { this.pizza = pizza })
   }
 
+  addTopping (topping) {
+    this.pizza.addTopping(topping.key)
+  }
+
   savePizza (form) {
     if (form.$invalid) return
     this.PizzaService.savePizza(this.pizza)

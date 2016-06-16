@@ -7,7 +7,11 @@ export class ToppingsService {
     this.$q = $q
   }
 
-  deleteTopping(topping) {
+  saveTopping (topping) {
+    return this.$http.post('http://localhost:1337/toppings', topping.json())
+  }
+
+  deleteTopping (topping) {
     return this.$http.delete('http://localhost:1337/toppings/' + topping.id)
       .then(() => { return this.getToppings() })
   }

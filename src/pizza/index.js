@@ -4,6 +4,7 @@ import { PizzaController } from './pizza.controller'
 import { PizzaService } from './pizza.service.js'
 import { ToppingsController } from './toppings.controller'
 import { ToppingsService } from './toppings.service'
+import { PizzaToppingsListComponent } from './pizza-toppings-list.component'
 
 export default
 
@@ -13,4 +14,5 @@ export default
     .controller('ToppingsController', ToppingsController)
     .service('ToppingsService', ToppingsService)
     .service('PizzaService', PizzaService)
+    .component('pizzaToppingsList', PizzaToppingsListComponent)
     .name

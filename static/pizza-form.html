@@ -1,4 +1,5 @@
 <div>
+
   <form ng-submit="$ctrl.savePizza(form)" name="form" class="form-horizontal" role="form">
     <div class="form-group">
       <div class="row">
@@ -6,27 +7,14 @@
           <label class="sr-only" for="pizzaName">Name</label>
           <input ng-model="$ctrl.pizza.name" type="text" class="form-control" id="pizzaName" placeholder="Pizza name">
         </div>
-        <div class="col-xs-7">
-          <p style="text-align: center "><strong>Availables toppings</strong></p>
-        </div>
       </div>
-      <div class="row">
-        <div class="col-xs-5">
-          <div ng-dragndrop="{ dropzone: $ctrl.dropzone }" class="well"></div>
-        </div>
-        <div class="col-xs-7">
-          <ul class="list-group">
-            <li ng-dragndrop ng-repeat="availableTopping in $ctrl.availableToppings track by $index" class= "list-group-item">{{ availableTopping.key }}</li>
-          </ul>
-        </div>
-      </div>
+      <pizza-toppings-list topping-list="$ctrl.pizza.toppings" available-toppings="$ctrl.availableToppings" on-add-topping="$ctrl.addTopping($event)"></pizza-toppings-list>
       <div class="row">
         <div class="col-xs-5">
           <button type="submit" class="btn btn-success">Save</button>
         </div>
       </div>
     </div>
-
     <pre>{{ $ctrl.pizza | json }}</pre>
     <pre>{{ $ctrl.toppings | json }}</pre>
   </form>
