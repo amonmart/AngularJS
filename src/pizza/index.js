@@ -16,5 +16,5 @@ export default
     .service('ToppingsService', ToppingsService)
     .service('PizzaService', PizzaService)
     .component('pizzaToppingsList', PizzaToppingsListComponent)
-    .directive('draggable', DraggableDirective)
+    .directive('dtaDraggable', DraggableDirective)
     .name

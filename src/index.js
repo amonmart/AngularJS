@@ -2,11 +2,12 @@ import angular from 'angular'
 import ngRoute from 'angular-route'
 import PizzaModule from './pizza'
 import NavbarModule from './navbar'
-
+import PizzaClickerModule from './pizzaClicker'
 
 angular.module('dtang', [
   PizzaModule,
   NavbarModule,
+  PizzaClickerModule,
   ngRoute
 ])
   .config(function ($routeProvider) {
@@ -30,6 +31,9 @@ angular.module('dtang', [
       templateUrl: 'pizza-form.html',
       controller: 'PizzaController',
       controllerAs: '$ctrl'
+    })
+    .when('/clicker', {
+      templateUrl: 'pizza-clicker-main.html'
     })
     .otherwise({
       redirectTo: '/home'
