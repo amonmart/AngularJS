@@ -11,7 +11,7 @@ angular.module('dtang', [
 ])
   .config(function ($routeProvider) {
     $routeProvider
-    .when('/', {
+    .when('/home', {
       template: '<h1>HOME</h1>',
       controller: function () {
       }
@@ -32,7 +32,7 @@ angular.module('dtang', [
       controllerAs: '$ctrl'
     })
     .otherwise({
-      redirectTo: '/'
+      redirectTo: '/home'
     })
   })
 
