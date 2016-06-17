@@ -2,32 +2,28 @@ import { Player } from './player.js'
 import { PlayerService } from './player.service.js'
 
 class UpgradesControler {
-    constructor($timeout, PlayerService) {
-        this.PlayerService = PlayerService
-        this.player = PlayerService.player
-    }
+  constructor ($timeout, PlayerService) {
+    this.PlayerService = PlayerService
+    this.player = PlayerService.player
+    this.upgrades = this.player.upgradesUnlocked
+  }
 
-    click(upgradeName, cost) {
-        if (this.player.pizzaCount >= cost) {
-            switch (upgradeName) {
-                case 'Multi2':
-                    this.player.pizzaCount = this.player.pizzaCount - cost
-                    this.player.pizzaPerClickMultiplier = this.player.pizzaPerClickMultiplier * 2
-                    return this.PlayerService.upgrade(upgradeName)
-                case 'Plus1':
-                    this.player.pizzaCount = this.player.pizzaCount - cost
-                    this.player.pizzaPerClick = this.player.pizzaPerClick + 1
-                    return this.PlayerService.upgrade(upgradeName)
-            }
+  isUnlocked (upgrade) {
+      var test
+      this.player.upgradesUnlocked.filter((item) => item === upgrade).forEach(() => { test = true })
+      return test
+  }
 
-
-        }
-    }
+  click (upgradeName, cost) {
+    this.PlayerService.upgrade(upgradeName, cost)
+  }
 }
 
 export const UpgradesComponent = {
-    bindings: {
-    },
-    templateUrl: 'pizzaClicker/upgrades.html',
-    controller: UpgradesControler
+  bindings: {
+  },
+  templateUrl: 'pizzaClicker/upgrades.html',
+  controller: UpgradesControler
 }
+
+UpgradesControler.$inject = ['$timeout', 'PlayerService', '$http']

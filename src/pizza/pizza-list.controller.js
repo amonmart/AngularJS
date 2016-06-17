@@ -7,7 +7,6 @@ export class PizzaListController {
     this.$http = $http
     this.$location
     this.pizza = null
-    console.log(PizzaService.getPizzas())
 
     this.PizzaService.getPizzas()
       .then(pizzas => {

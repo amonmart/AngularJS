@@ -52,5 +52,15 @@
       "key": "Cherry",
       "fr": "Cerise"
     }
+  ],
+  "upgradesAvailables":[
+    {
+      "name": "multi2",
+      "cost": "10"
+    },
+    {
+      "name": "plus1",
+      "cost": "5"
+    }
   ]
 }

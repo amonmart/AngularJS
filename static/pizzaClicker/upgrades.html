@@ -1,8 +1,10 @@
 <div class="row">
     <div class="col-xs-1">
-        <img ng-click="$ctrl.click('Multi2','100')" src="./images/multi2.png">
+        <img ng-if="!$ctrl.isUnlocked('Multi2')" ng-click="$ctrl.click('Multi2','10')" src="./images/multi2.png">
+        <img ng-if="$ctrl.isUnlocked('Multi2')" ng-click="$ctrl.click('Multi2','10')" src="./images/multi2-desac.png">
     </div>
     <div class="col-xs-1 col-xs-offset-1">
-        <img ng-click="$ctrl.click('Plus1','3')" src="./images/plus1.png">
+        <img ng-if="!$ctrl.isUnlocked('Plus1')" ng-click="$ctrl.click('Plus1','3')" src="./images/plus1.png">
+        <img ng-if="$ctrl.isUnlocked('Plus1')" ng-click="$ctrl.click('Plus1','3')" src="./images/plus1-desac.png">
     </div>
 </div>

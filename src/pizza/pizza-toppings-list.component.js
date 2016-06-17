@@ -9,4 +9,3 @@ export const PizzaToppingsListComponent = {
   controller: PizzaToppingsListController,
   templateUrl: 'pizza-toppings-list.html'
 }
-

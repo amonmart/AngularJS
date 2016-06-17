@@ -20,18 +20,11 @@ angular.module('dtang', [
       }
     })
     .when('/pizzas', {
-      templateUrl: 'pizza-list.html',
-      controller: 'PizzaListController',
-      controllerAs: '$ctrl'
+      templateUrl: 'pizza-list-main.html'
     })
     .when('/toppings', {
       templateUrl: 'toppings-list.html',
       controller: 'ToppingsController',
-      controllerAs: '$ctrl'
-    })
-    .when('/pizzas/:id', {
-      templateUrl: 'pizza-form.html',
-      controller: 'PizzaController',
       controllerAs: '$ctrl'
     })
     .when('/clicker', {
