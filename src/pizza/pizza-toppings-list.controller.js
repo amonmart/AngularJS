@@ -1,12 +1,20 @@
 export class PizzaToppingsListController {
-  constructor () {
-    //console.log(this.toppingList)
+  constructor ($element) {
+    this.$element = $element
   }
 
   availableOnClick ($event) {
     this.onAddTopping({
       $event
     })
+  }
+
+  dropped () {
+    this.availableOnClick(this.draggedTopping)
+  }
+
+  drag (topping) {
+    this.draggedTopping = topping
   }
 
   toppingOnClick (topping) {

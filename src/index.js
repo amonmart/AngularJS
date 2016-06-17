@@ -3,11 +3,13 @@ import ngRoute from 'angular-route'
 import PizzaModule from './pizza'
 import NavbarModule from './navbar'
 import PizzaClickerModule from './pizzaClicker'
+import DtaDragDrop from './dta-DragDrop'
 
 angular.module('dtang', [
   PizzaModule,
   NavbarModule,
   PizzaClickerModule,
+  DtaDragDrop,
   ngRoute
 ])
   .config(function ($routeProvider) {

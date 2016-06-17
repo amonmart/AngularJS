@@ -5,7 +5,6 @@ import { PizzaService } from './pizza.service.js'
 import { ToppingsController } from './toppings.controller'
 import { ToppingsService } from './toppings.service'
 import { PizzaToppingsListComponent } from './pizza-toppings-list.component'
-import { DraggableDirective } from './dta-li-drag.directive'
 
 export default
 
@@ -16,5 +15,4 @@ export default
     .service('ToppingsService', ToppingsService)
     .service('PizzaService', PizzaService)
     .component('pizzaToppingsList', PizzaToppingsListComponent)
-    .directive('dtaDraggable', DraggableDirective)
     .name
